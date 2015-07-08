@@ -20,6 +20,13 @@ var (
 
 // NewHTTPDialer returns dial func which dials remote address, GETs specified url with ntlm authentication headers
 // then returns connection, if response status was anything, but 401.
+//
+// Usage:
+// 	client = &http.Client{
+// 		Transport: &http.Transport{
+// 			Dial: ntlm.NewHTTPDialer(username, password, domain, url),
+// 		},
+// 	}
 func NewHTTPDialer(username, password, domain, url string) func(network, address string) (net.Conn, error) {
 	return func(network, address string) (net.Conn, error) {
 		c, err := net.Dial(network, address)

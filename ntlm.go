@@ -3,6 +3,10 @@
 // license that can be found in the LICENSE file.
 
 // Package ntlm is an NTLMv1 client implementation.
+//
+// NTLM session started with sending Negotiate() to server.
+// Server then responds with challenge, use ParseChallenge to get neccecary bits from it.
+// Then use Authenticate() to generate authentication string.
 package ntlm
 
 import (
